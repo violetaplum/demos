@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="sawon1" class="sawon.Sawon" p:name="JangHeeSoo1"/>
+    <bean id="sawon2" class="sawon.Sawon" p:name="JangHeeSoo2"/>
+    <bean id="insaBean" class="insa.Insa" p:name="홍길동">
+        <!--<property name="name" value="JangHeeSoo"/>-->
+    </bean>
+    <bean id="insaBean2" class="insa.Insa" p:name="Hong" p:age="33"/>   <!--int자료형도 ""을 붙여서 입력해줘야한다.-->
+
+    <!--
+    insabean은 객체명
+    Insa insaBean = new Insa();
+    insaBean.setName("홍길동")
+        -> 초기치 인자를 줄 경우
+        이같은 경우 name, value로 처리한다. -> setter가 처리.
+    -->
+
+
+</beans>
