@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 import sawon.Sawon;
+import setter.Setter;
 import sun.net.www.content.text.Generic;
 
 public class Main {
@@ -44,5 +45,28 @@ public class Main {
 
         System.out.println(s3.toString());
         System.out.println(s4.toString());
+
+
+
+        String str1 = "hello, spring";
+        GenericXmlApplicationContext gxac1 = new GenericXmlApplicationContext("applicationContext.xml");
+        Insa insa = gxac1.getBean("insaBean3",Insa.class);
+        System.out.println(insa.helloName(str1));
+        Setter setter1 = gxac1.getBean("setterBean", Setter.class);
+        System.out.println(setter1.kajaHello(str1));
+        gxac1.close();
+
+
+/*
+setter1.kajaHello(str1)은 이제 드디어 드라마틱하게
+            public String kajaHello(String str1)
+        {
+            return insa.helloName(str1);
+        }
+        의 insa.helloName(str1)을 가동시키는데
+            보니까 insa에 Insa클래스 insaBean객체가 들어있고 helloName은 Insa클래스 안에 있으니 결국 Insa클래스의 helloName이 가동됨*/
+
+
+
     }
 }

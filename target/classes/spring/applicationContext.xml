@@ -17,6 +17,11 @@
         -> 초기치 인자를 줄 경우
         이같은 경우 name, value로 처리한다. -> setter가 처리.
     -->
-
+<bean id="insaBean3" class="insa.Insa">
+    <property name="name" value="홍길동"/>
+</bean>
+    <bean id="setterBean" class="setter.Setter">
+        <property name="insa" ref="insaBean"/>
+    </bean>
 
 </beans>

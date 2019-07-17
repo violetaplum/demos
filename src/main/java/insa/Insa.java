@@ -11,10 +11,16 @@ public class Insa {
     {
         this.age=age;
     }
+
     public String helloYou(String str) //출력전문메소드
     {
         return this.name+" 님\n"+str+"\n나이는"+this.age+"이시군요";
     }
+    public String helloName(String str1)
+    {
+        return this.name+" 님\n"+str1;
+    }
+
     public String insaGo(String str)
     {
         return this.name+" 님\n"+str;
