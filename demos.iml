@@ -25,6 +25,24 @@
         <fileset id="fileset2" name="ApplicationContext2" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext2.xml</file>
         </fileset>
+        <fileset id="fileset3" name="AppContext3" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/appContext3.xml</file>
+        </fileset>
+        <fileset id="fileset4" name="AppContext4" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/appContext4.xml</file>
+        </fileset>
+        <fileset id="fileset5" name="AppContext5" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/appContext5.xml</file>
+        </fileset>
+        <fileset id="fileset6" name="AppContext6" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/appContext6.xml</file>
+        </fileset>
+        <fileset id="fileset7" name="AppContext7" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/appContext7.xml</file>
+        </fileset>
+        <fileset id="fileset8" name="AppContext8" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/appContext8.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>

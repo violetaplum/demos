@@ -1,6 +1,14 @@
-package insa;
-//초기치 인자로 이름,나이를 넣는데p:를 사용해봅시다.
+package insa3;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import sawon3.Sawon;
+import javax.annotation.Resource;
+
+
 public class Insa {
+
     private String name;
     private int age;
    /* public void setName(String name)
@@ -13,11 +21,16 @@ public class Insa {
        //super();
        this.name=name;
    }
+   public Insa(int age)
+   {
+       this.age=age;
+   }
    public Insa(){}
     public void setAge(int age)
     {
         this.age=age;
     }
+    public void setName(String name){this.name=name;}
 
     public String helloYou(String str) //출력전문메소드
     {

@@ -1,19 +1,14 @@
 package mainpkg;
 
-import insa.Insa;
+import aljahobby.AljaHobbyClass;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.GenericApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
-import sawon.Sawon;
-import setter.Setter;
-import sun.net.www.content.text.Generic;
 
 public class Main {
     public static void main(String[] args)
     {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("/spring/applicationContext.xml");
-
+      /*  ApplicationContext ac = new ClassPathXmlApplicationContext("/spring/applicationContext.xml");
+*/
         /*GenericApplicationContext gxac1 = new GenericXmlApplicationContext("/spring/applicationContext.xml");
         Generic을 써도 무상관!!
 
@@ -21,6 +16,7 @@ public class Main {
         gxac1.close();
 
         * */
+/*
 
         String str = "How's the wheather today?";
 
@@ -37,8 +33,9 @@ public class Main {
 
         Insa in2 = (Insa)ac.getBean("insaBean2");
         System.out.println(in2.helloYou(" Hello!!!!"));
+*/
 
-        ApplicationContext ac2 = new ClassPathXmlApplicationContext("spring/applicationContext2.xml");
+      /*  ApplicationContext ac2 = new ClassPathXmlApplicationContext("spring/applicationContext2.xml");
 
         Sawon s3 = (Sawon)ac2.getBean("sawon1");
         Sawon s4 = (Sawon)ac2.getBean("sawon2");
@@ -46,15 +43,25 @@ public class Main {
         System.out.println(s3.toString());
         System.out.println(s4.toString());
 
+*/
 
-
-        String str1 = "hello, spring";
+      /*  String str1 = "hello, spring";
         GenericXmlApplicationContext gxac1 = new GenericXmlApplicationContext("applicationContext.xml");
+        ApplicationContext ac2 = new ClassPathXmlApplicationContext("applicationContext.xml");
         Insa insa = gxac1.getBean("insaBean3",Insa.class);
         System.out.println(insa.helloName(str1));
         Setter setter1 = gxac1.getBean("setterBean", Setter.class);
         System.out.println(setter1.kajaHello(str1));
-        gxac1.close();
+        gxac1.close();*/
+
+
+      ApplicationContext ac3 = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
+
+      AljaHobbyClass al1 = (AljaHobbyClass)ac3.getBean("al1",AljaHobbyClass.class);
+
+        System.out.println(al1.toString());
+        al1.hobby();
+        //al1.getSawon().hobby()로 할수도 있음
 
 
 /*

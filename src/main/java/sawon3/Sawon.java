@@ -1,4 +1,4 @@
-package sawon;
+package sawon3;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 public class Sawon {
 
     private int id;
-
-
     private String name;
 
     public void setId(int id)
@@ -33,7 +31,6 @@ public class Sawon {
         this.name=name;
         this.id=id;
     }
-
     public int getId()
     {
         return this.id;

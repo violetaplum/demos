@@ -1,37 +1,52 @@
-package setter;
-import insa.Insa;
+package setterpkg;
+import insapkg.Insa;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import sawon.Sawon;
+import sawonpkg.Sawon;
 
-@Component  //<context:component-scan base-package="setter"/>
-//그러니까 Setter클래스를 applicationcontext에 bean으로 등록시켜
-//이 클래스가 spring bean이라고 알려준다.
+import javax.annotation.Resource;
+
+@Component("setterCom")
 public class Setter {
+
+    //@Autowired
+    //@Qualifier("insaQual")
+    @Resource(name="insaCom")
     private Insa insa; //Insa클래스 insa객체
+    //@Autowired
+    //@Qualifier("sawonQual")
+    @Resource(name="sawonCom")
     private Sawon sawon;
 
 
     //Setter Injection//////////////////////////////////////////////////
-   /* public Insa getInsa() //반환형이 객체
+
+    public Insa getInsa() //반환형이 객체
     {
         return insa;
     }
+
     public void setInsa(Insa insa)
     {
         this.insa = insa; //insabean 객체가 전달되어 insa필드에 들어간다
     }
-*/
+
    //Constructor Injection///////////////////////////////////////////////
    public Setter(){}
+
    public Setter(Insa insa)
    {
        this.insa = insa;
    }
+
    public Setter(Sawon sawon)
    {
        this.sawon = sawon;
    }
-   public Setter(Insa insa,Sawon sawon)
+
+   public Setter(Insa insa, Sawon sawon)
    {
        this.insa = insa;
        this.sawon = sawon;

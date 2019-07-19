@@ -1,14 +1,13 @@
-package sawon;
+package sawonpkg;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-
+@Component("sawonCom")
 public class Sawon {
-
+    @Value("13")
     private int id;
-
-
+    @Value("장희수")
     private String name;
 
     public void setId(int id)
