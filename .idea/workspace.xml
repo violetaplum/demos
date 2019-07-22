@@ -6,11 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a5c628e-b7ca-4c88-9447-cd28ce506747" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/helloProcess2/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helloProcess2/Security.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainpkg/AopMain2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainpkg/AopMain2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sawon/SawonProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sawon/SawonProcess.java" afterDir="false" />
-    </list>
+    <list default="true" id="5a5c628e-b7ca-4c88-9447-cd28ce506747" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/${project.build.directory}/classes/" />
     <ignored path="$PROJECT_DIR$/${project.build.directory}/test-classes/" />
@@ -38,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/helloProcess2/Security.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="35" column="77" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="77" />
+            <state relative-caret-position="301">
+              <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#699#700#0" expanded="true" />
@@ -518,16 +514,15 @@
       <workItem from="1563783226873" duration="580000" />
       <workItem from="1563783943869" duration="262000" />
       <workItem from="1563784252756" duration="367000" />
-      <workItem from="1563784665507" duration="12656000" />
+      <workItem from="1563784665507" duration="12987000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75003000" />
+    <option name="totallyTimeSpent" value="75334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4982857" visible="true" weight="0.20032224" />
       <window_info id="Structure" order="1" sideWeight="0.5017143" side_tool="true" weight="0.23222223" />
@@ -539,7 +534,7 @@
       <window_info id="Web" order="7" sideWeight="0.50133336" side_tool="true" weight="0.18968385" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.40103093" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40103093" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1013,8 +1008,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/helloProcess2/Security.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="35" column="77" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="77" />
+        <state relative-caret-position="301">
+          <caret line="28" column="21" lean-forward="true" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#699#700#0" expanded="true" />
