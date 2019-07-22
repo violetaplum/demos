@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean name="helloProcessBean" class="helloProcess.HelloProcess"/>
+    <bean name="securityBean" class="helloProcess.Security"/>
+    <bean name="aopTestBean" class="helloProcess.AopTest"/>
+
+    <bean name="sawonBean" class="sawon.SawonProcess"/>
+    <!--빈객체 생성, 그러니까 new했네!!-->
+
+    <aop:config>
+        <aop:aspect id="securityAspect1" ref="securityBean" order="1">  <!--order : aspect가 적용되는 순서-->
+            <aop:before pointcut="execution(public * helloProcess..*Process.al*(..))" method="goSecurity3"/>
+            <!--helloProcess.. : 밑에 있는 모든것.. 또한 끝이 Process로 끝나는 모든것 에서 al로 시작하는 모든 메소드-->
+        </aop:aspect>
+
+        <aop:aspect id="sawonAspect2" ref="securityBean" order="0">
+            <aop:pointcut expression="within(helloProcess.HelloProcess)" id="secuPoint"/>
+            <aop:before pointcut-ref="secuPoint" method="goSecurity1"/>
+            <aop:after pointcut-ref="secuPoint" method="goSecurity22"/>
+        </aop:aspect>
+    </aop:config>
+
+
+
+    <!--
+    <beans>
+        <bean></bean>
+        <aop:config></aop:config>
+    </beans>-->
+
+    <!--
+        within : 어떤 형식(클래스, 인터페이스….)아래의 메소드가 PointCut이 된다
+        <aop:pointcut expression=”within(helloProcess.HelloProcess)”
+        -&ndash;&gt;HelloProcess클래스 아래의 모든 메소드들
+
+        within(helloProcess.*)
+        → helloProcess패키지 아래의 모든 메소드들
+
+
+        within(hello1..*)
+        → hello1 패키지및 그 아래에 있는 패키지의 모든 메소드들
+
+    -->
+
+
+
+
+
+
+</beans>

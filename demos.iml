@@ -43,6 +43,19 @@
         <fileset id="fileset8" name="AppContext8" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/spring/appContext8.xml</file>
         </fileset>
+        <fileset id="fileset9" name="AopContext" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/aopContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/configurationbean/ConfigurationBean.java</file>
+        </fileset>
+        <fileset id="fileset10" name="DbContext" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/dbContext.xml</file>
+        </fileset>
+        <fileset id="fileset11" name="AopContext2" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/aopContext2.xml</file>
+        </fileset>
+        <fileset id="fileset12" name="AopContext3" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/aopContext3.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>

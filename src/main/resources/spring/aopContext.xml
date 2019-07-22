@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean name="helloProcessBean" class="helloProcess.HelloProcess"/>
+    <bean name="securityBean" class="helloProcess.Security"/>
+    <bean name="aopTestBean" class="helloProcess.AopTest"/>
+
+    <bean name="sawonBean" class="sawon.SawonProcess"/>
+    <!--빈객체 생성, 그러니까 new했네!!-->
+
+    <aop:config>
+        <aop:aspect id="securityAspect" ref="securityBean">   <!--asepctj weaver를 붙임-->
+            <aop:pointcut expression="within(helloProcess.HelloProcess)" id="secuPoint"/>    <!--within : "특정 형식 아래의 전부다" 라는 의미-->
+            <aop:after pointcut-ref="secuPoint" method="goSecurity" />
+            <!--aop:pointcut 의 id를 aop:before의 pointcut-ref에 적용된다. 이는 무조건 before 전에 명시돼야한다-->
+        </aop:aspect>
+        <aop:aspect id="aopTestAspect" ref="aopTestBean">
+            <aop:pointcut expression="within(helloProcess.HelloProcess)" id="aopTestPoint"/>
+            <aop:before pointcut-ref="aopTestPoint" method="aopTest"/>
+        </aop:aspect>
+        <aop:aspect id="sawonAspect" ref="securityBean">
+            <aop:pointcut expression="within(sawon.SawonProcess)" id="sawonPoint"/>
+            <aop:before pointcut-ref="sawonPoint" method="sawonCheck"/>
+            <aop:after pointcut-ref="sawonPoint" method="goSecurity2"/>
+        </aop:aspect>
+    </aop:config>
+
+
+
+    <!--
+    <beans>
+        <bean></bean>
+        <aop:config></aop:config>
+    </beans>-->
+
+<!--
+    within : 어떤 형식(클래스, 인터페이스….)아래의 메소드가 PointCut이 된다
+    <aop:pointcut expression=”within(helloProcess.HelloProcess)”
+    -&ndash;&gt;HelloProcess클래스 아래의 모든 메소드들
+
+    within(helloProcess.*)
+    → helloProcess패키지 아래의 모든 메소드들
+
+
+    within(hello1..*)
+    → hello1 패키지및 그 아래에 있는 패키지의 모든 메소드들
+
+-->
+
+
+
+
+
+
+</beans>
