@@ -5,6 +5,7 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 
 @Aspect //여기가 xml의 <aop:aspect>부분   //@Component는 저쪽에서 만들어놓은 객체 쓰겠다는 의미가 된다.
 public class Security {
@@ -20,13 +21,28 @@ public class Security {
     }
 
     @Before("mukja()")//상위의 mukja()가 무엇인지 알려줌 ----> before
+    // @Before("within(helloProcess.HelloProcess)") 한 후 상위의 mukja()를 생략해도 된다.
+    @Order(0)
     public void goSecurity(){
-        System.out.println("공통 : 여기는 보안 처리중!!   사실은 Before  mukja()!!!!");
+        System.out.println("공통 : 여기는 보안 처리중!!   사실은 Before  mukja()!!!!  goSecurity()");
     }
     @After("mukja()")
+    @Order(1)
     public void goSecurity2()
     {
-        System.out.println("공통 : 여기는 보안 처리중!!   사실은 After   mukja()!!!!!!!!!");
+        System.out.println("공통 : 여기는 보안 처리중!!   사실은 After   mukja()!!!!!!!!!  goSecurity2()");
+    }
+    @After("mukja()")
+    //@After("execution(public * helloProcess..*Process.al*(..))") 으로 써도 가능!!
+    @Order(2)
+    public void goSecurity3(JoinPoint jp1)
+    {
+        System.out.println("공통 : 여기는 보안 처리중!!   사실은 After   mukja()!!!!!!!!!  goSecurity3()");
+        System.out.println(jp1.getKind());  //어떤 종류?
+        System.out.println(jp1.getSignature().getName());   //target 메소드명
+        System.out.println(jp1.getSignature().toLongString()); //target 정보
+        System.out.println(jp1.getTarget().getClass().getName()); //target 클래스명
+        System.out.println("-------------------------------------------------------------------------");
     }
 
 

@@ -22,9 +22,15 @@ public class AopMain2 {
 
         System.out.println("----------------------------------------------------------------------------------");
 
+        String str = "010-4915-2532";
+
         sa1.sawonTrip();
         sa1.sawonIncomProcess();
         sa1.sawonDataProcess();
+
+        System.out.println("----------------------------------------------------------------------------------");
+
+        sa1.sawonTel(str);
 
         ((AbstractApplicationContext)ac1).close();
     }
