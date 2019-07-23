@@ -11,28 +11,32 @@ import org.springframework.core.annotation.Order;
 public class Security {
 
     //Single Pointcut with multiple packages............................ use '||'
-    @Pointcut("execution(* helloProcess2..*()) || execution(* sawon..*())")//helloProcess2아래의 인자가 없는 모든 메소드들 //스프링은 pointcut적용시 메소드 only!!!!
 
+    //@Pointcut("execution(* helloProcess2..*()) || execution(* sawon..*())")//helloProcess2아래의 인자가 없는 모든 메소드들 //스프링은 pointcut적용시 메소드 only!!!!
     //joinpoint : 공통내용을 적용할 메소드 전체
     //pointcut : 그 중에서 before/after써주는 정확한 메소드
     //예) kajaDrive()등등..이 될수 있겠다.
     private void mukja(){ //아무 메소드나 만든다.
         System.out.println("actual mukja() method............");
-    }
+    } //@Pointcut("")이 없다면 이 mukja()는 쓸모가 없어진다.
 
-    @Before("mukja()")//상위의 mukja()가 무엇인지 알려줌 ----> before
-    // @Before("within(helloProcess.HelloProcess)") 한 후 상위의 mukja()를 생략해도 된다.
+    @Before("within(helloProcess2.HelloProcess)")//상위의 mukja()가 무엇인지 알려줌 ----> before
+    //@Before("within(helloProcess.HelloProcess)") 한 후 상위의 mukja()를 생략해도 된다.
     @Order(0)
     public void goSecurity(){
         System.out.println("공통 : 여기는 보안 처리중!!   사실은 Before  mukja()!!!!  goSecurity()");
     }
-    @After("mukja()")
+
+
+    @After("within(helloProcess2.HelloProcess)")
     @Order(1)
     public void goSecurity2()
     {
         System.out.println("공통 : 여기는 보안 처리중!!   사실은 After   mukja()!!!!!!!!!  goSecurity2()");
     }
-    @After("mukja()")
+
+
+    @After("execution(public * sawon..*Process.*(..))")
     //@After("execution(public * helloProcess..*Process.al*(..))") 으로 써도 가능!!
     @Order(2)
     public void goSecurity3(JoinPoint jp1)
@@ -44,6 +48,8 @@ public class Security {
         System.out.println(jp1.getTarget().getClass().getName()); //target 클래스명
         System.out.println("-------------------------------------------------------------------------");
     }
+    //execution : 특정 패턴의 메소드를 호출할때 사용
+    //within : 특정 클래스 혹은 패키지 하위 모든 메소드를 호출할때 사용
 
 
 

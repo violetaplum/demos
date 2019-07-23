@@ -56,6 +56,12 @@
         <fileset id="fileset12" name="AopContext3" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/spring/aopContext3.xml</file>
         </fileset>
+        <fileset id="fileset13" name="Jdbctemplatexml" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/jdbctemplatexml.xml</file>
+        </fileset>
+        <fileset id="fileset14" name="CustomerContext" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/customerContext.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>

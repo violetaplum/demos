@@ -10,6 +10,7 @@ import sawon.SawonProcess;
 public class AopMain2 {
     public static void main(String[] args)
     {
+
         System.out.println("hello!!!!!");
         ApplicationContext ac1 = new ClassPathXmlApplicationContext("spring/aopContext3.xml");
 
