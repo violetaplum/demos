@@ -105,7 +105,7 @@ public class springdbMain1 {
 
 
 
-               sd1.insert1(id,name,tel,d);
+              /* sd1.insert1(id,name,tel,d);*/
            }
            else if(num==3)
            {
