@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--   &lt;!&ndash; 이건 생성자 인젝션(constructor injection)이군&ndash;&gt;
+    <bean id="insaBean" class="insa.Insa">
+        <constructor-arg name="name" value="JangHeeSoo"/>
+    </bean>
+    <bean id="sawonBean" class="sawon.Sawon">
+        <property name="name" value="name"/>
+        <property name="id" value="22"/>
+    </bean>
+
+    <bean id="aljaBean" class="aljahobby.AljaHobbyClass">
+       &lt;!&ndash; <constructor-arg name="insa" ref="insaBean"/>&ndash;&gt;
+        <constructor-arg name="sawon" ref="sawonBean"/>
+       &lt;!&ndash;
+       객체 전달을 위해 ref사용
+        insa는 setInsa()를 생각하면됨
+        결국 insa필드에Insa클래스 객체를 넣겠다는것
+        &ndash;&gt;
+    </bean>-->
+    <import resource="appContext4.xml"/>
+    <!--appContext4.xml의 내용을 가져와 합치는 코드-->
+
+
+
+    <bean id="insaBean" class="insa.Insa">
+        <constructor-arg name="name" value="홍길동"/>
+    </bean>
+    <bean id="setterBean" class="setter.Setter">
+        <constructor-arg name="insa" ref="insaBean"/>
+        <constructor-arg name="sawon" ref="sawonBean"/>
+    </bean>
+
+
+
+
+
+
+    <bean id="sawon" class="sawon.Sawon">
+        <constructor-arg value="name"/>
+        <constructor-arg value="333"/>
+    </bean>
+
+    <bean id="sawon1" class="setter.Setter">
+        <constructor-arg name="sawon" ref="sawon"/>
+    </bean>
+
+<!--
+
+    constructor injection방식에서는 반드시 Insa.java에 반드시 생성자 생성할것
+    즉, Insa insaBean=new Insa("홍길동")개념이므로
+    만일 setter injection방식이면
+    <property ~~~~~
+--><!--
+    객체를 넣는 예제에서 갖아 많이 예를 드는 것을 든다면
+
+    <bean id="empBean" class="emp.EmpDAO"/>
+
+    <bean id="setBean" class="setter.Setter">
+        <constructor-arg name="insa" ref="empBean"/>
+    </bean>
+    empdao
+    ㄴEmpDAO class
+        search(),update(),inset(),delete()
+        import empdao.EmpDAO;
+            :
+          EmpDAO ed1 = new  EmpDAO();
+          ArrayList alist1 = ed1.getAllInfo();
+
+    -->
+</beans>

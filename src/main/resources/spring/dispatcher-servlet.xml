@@ -38,15 +38,9 @@
     
 
     <annotation-driven />
-
-
-
     <beans:bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-
-        <beans:property name="prefix" value="/jsp/" />
-
-        <beans:property name="suffix" value=".jsp" />
-
+        <beans:property name="prefix" value="webapp/jsp/" /> <!--위치-->
+        <beans:property name="suffix" value=".jsp" /> <!--어떤파일?-->
     </beans:bean>
 
 

@@ -12,11 +12,8 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
   <context-param>
-
     <param-name>contextConfigLocation</param-name>
-
-    <param-value>classpath:spring/*-context.xml</param-value>
-
+    <param-value>classpath:/spring/*Context.xml</param-value>
   </context-param>
 
   <listener>
@@ -26,9 +23,7 @@
 
 
   <listener>
-
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-
   </listener>
 
   <servlet>
@@ -41,7 +36,7 @@
 
       <param-name>contextConfigLocation</param-name>
 
-      <param-value>classpath:spring/*-servlet.xml</param-value>
+      <param-value>classpath:spring/dispatcher-servlet.xml</param-value>  <!--ppt로 그린 dispatcher servlet이 이부분!!!!-->
 
     </init-param>
 
@@ -64,14 +59,14 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/rest-servlet.xml</param-value>
+            <param-value>classpath:/spring/dispatcher-servlet.xml</param-value>  <!--ppt로 그린 dispatcher servlet이 이부분!!!!-->
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>rest</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>rest</servlet-name>  <!--servlet이름-->
+        <url-pattern>/</url-pattern>  <!--/ 가 있는 주소에는 다 찾아가서 매핑하겠다는 의미-->
     </servlet-mapping>
 
   <!-- /AOP 추가사항 추정-->
@@ -109,9 +104,8 @@
   <filter-mapping>
 
     <filter-name>encodingFilter</filter-name>
-
     <url-pattern>*.do</url-pattern>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
 
   </filter-mapping>
 

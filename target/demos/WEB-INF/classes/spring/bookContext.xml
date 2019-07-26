@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="dataSourceBean" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> <!--connectionpool을 가능하게 해주는 jar파일-->
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="hr"/>
+        <property name="password" value="hr"/>
+    </bean>
+    <!--한번만 선언해놓으면 계속 가져다 쓸수 있음-->
+    <!--이때 SPRING JDBC가 필요해진다.-->
+
+    <bean id="bookVOBean" class="bookProcess.BookVO">
+    </bean>
+
+
+    <!--you must remember!!!! JdbcTemplate   여기는 Connection 객체-->
+    <bean id="jdbcTemplateBean" class="org.springframework.jdbc.core.JdbcTemplate"> <!--스프링 자체의 DB클래스-->
+        <property name="dataSource" ref="dataSourceBean"/>
+    </bean>
+
+
+    <!--커넥션을 datasource >> JdbcTemplate >> SawonDAO에 적용-->
+    <!--SawonDAO에는 spring DB인 JdbcTemplate를 사용할 수 있다-->
+    <bean id="bookDAOBean" class="bookProcess.BookDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplateBean"/>
+        <!--이곳의 property이름은 DAO 의 setter에의해 자동으로 감지된다-->
+        <!--setJdbcTemplate()이므로
+        SawonDAO에서 만들때 getter/setter 만들고
+        setJt1()이 되므로 직접 입력한다
+        -->
+    </bean>
+</beans>

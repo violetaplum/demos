@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config />
+    <context:component-scan base-package="insapkg,setter,sawonpkg,aljahobby,sawonpkg"/>
+
+
+
+    <bean id="sawonBean" class="sawonpkg.Sawon">
+        <qualifier value="sawonQual"/>
+    </bean>
+
+    <bean id="insaBean" class="insapkg.Insa" p:age="13" p:name="길라임">
+        <qualifier value="insaQual"/>
+    </bean>
+
+    <bean id="aljaBean" class="aljahobby.AljaHobbyClass">
+        <qualifier value="aljaQual"/>
+    </bean>
+
+    <bean id="setterBean" class="setterpkg.Setter">
+        <qualifier value="setterQual"/>
+    </bean>
+
+    <!--왜bean태그를 기술하셨지? 그것은 context:annotation-confige되어있는 bean은 annotation을 적용(활성화)시키는 것이지
+    bean을 만들어주는게 아니니까-->
+
+    <!--   <context:component-scan base-package="setter"/>
+       <context:component-scan base-package="sawonpkg"/>
+       <context:component-scan base-package="aljahobby,sawonpkg"/>-->
+    <!-- @Component를 클래스 위에 쓰고
+     아래에 @Value("길라임")이라고 쓴 부분에서 활용..-->
+</beans>

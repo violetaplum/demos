@@ -29,8 +29,8 @@ public class springdbMain1 {
         }
 
     }
-    public static void main(String[] args) throws ParseException {
-        ApplicationContext ac1 = new GenericXmlApplicationContext("spring/jdbctemplatexml.xml");
+    public static void main(String[] args) throws Exception {
+        ApplicationContext ac1 = new GenericXmlApplicationContext("spring/c3p0Context.xml");
         sd1 = (SawonDAO)ac1.getBean("sawonDAOBean");
         sv1 = (SawonVO)ac1.getBean("sawonVOBean");
 

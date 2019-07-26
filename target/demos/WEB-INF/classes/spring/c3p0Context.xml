@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    C3P0를 사용하기 위해선
+    c3p0.jar
+    mchange.jar가 필요하다-->
+    <bean id="dataSourceBean"
+          class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          destroy-method="close">
+        <property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe" />
+        <property name="user" value="hr" />
+        <property name="password" value="hr" />
+        <property name="initialPoolSize" value="5" />
+        <property name="minPoolSize" value="2" />
+        <property name="maxPoolSize" value="10" />   <!--connection pool이 너무 많으면 안되므로 갯수를 정해놓은것-->
+        <!--<property name="acquireIncrement" value="3" />
+        <property name="acquireRetryAttempts" value="30" />
+        <property name="acquireRetryDelay" value="1000" />
+        <property name="idleConnectionTestPeriod" value="60" />
+        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="testConnectionOnCheckin" value="true" />
+        <property name="testConnectionOnCheckout" value="false" />-->
+    </bean>
+
+    <bean id="sawonVOBean" class="helloProcess3.SawonVO">
+    </bean>
+
+
+
+    <bean id="jdbcTemplateBean" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSourceBean"/>
+    </bean>
+
+
+
+    <bean id="sawonDAOBean" class="helloProcess3.SawonDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplateBean"/>
+    </bean>
+</beans>

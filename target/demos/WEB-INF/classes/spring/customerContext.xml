@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSourceBean" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> <!--connectionpool을 가능하게 해주는 jar파일-->
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <!--<property name="driverClassName" value="com.oracle.OracleDriver"/>-->
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="hr"/>
+        <property name="password" value="hr"/>
+    </bean>
+
+
+
+
+    <bean id="jdbcTemplateBean" class="org.springframework.jdbc.core.JdbcTemplate"> <!--스프링 자체의 DB클래스-->
+        <property name="dataSource" ref="dataSourceBean"/>
+    </bean>
+
+
+    <bean id="customerDAOBean" class="customerProcess.CustomerDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplateBean"/>
+
+    </bean>
+</beans>
